@@ -27,7 +27,7 @@ function Banner() {
                         </svg>
                         <input type="text" className="grow" placeholder="Email" />
                     </label>
-                    <button className="btn btn-secondary">Secondary</button>
+                    <button className="btn btn-secondary">Get Started</button>
 
                     </div>
 
