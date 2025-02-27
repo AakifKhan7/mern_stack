@@ -3,10 +3,12 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bookRouter from "./route/book.route.js";
 import cors from "cors";
+import userRouter from "./route/user.route.js";
 
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 dotenv.config();
 
@@ -28,6 +30,8 @@ catch (error) {
 
 // defining routes
 app.use("/books", bookRouter);
+app.use("/users", userRouter);
+
 
 
 app.listen(PORT, () => {

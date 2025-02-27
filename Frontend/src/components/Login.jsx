@@ -1,10 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 function Login() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async (data) => {
+        const userInfo = {
+            email: data.email,
+            password: data.password
+        }
+        await axios.post('http://localhost:4001/users/login', userInfo)
+            .then((res) => {
+                console.log(res.data);
+                if(res.data){
+                    alert('Login successful')
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+                alert(error.response.data.message);
+            })
+        
+    }
 
     return (
         <>
